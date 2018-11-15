@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  margin: 2% auto;
+  border: 2px black dotted;
+  display: flex;
+  flex-direction: column;
+}
+
+.component {
+  margin: auto;
+  border: 2px blue dotted;
+}
