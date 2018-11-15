@@ -7,8 +7,10 @@ var BurgerStack = (props) => {
         <div className="container">
             BurgerStack
             {
-                props.stack.map(ingredient => {
-                    return <Ingredient name={ingredient.name} color={ingredient.color}/>
+                props.stack.map((ingredient, idx) => {
+                    return (
+                        <Ingredient key={idx} name={ingredient.name} color={ingredient.color}/>
+                    )
                 })
             }
         </div>

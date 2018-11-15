@@ -20,9 +20,12 @@ class App extends Component {
                 {name: 'Bacon', color: 'maroon'},
                 {name: 'Onion', color: 'lightyellow'}
             ],
-            stack: []
+            stack: [],
+            lastIngredientIdx: null
         }
         this.addIngredient = this.addIngredient.bind(this);
+        this.clearBurger = this.clearBurger.bind(this);
+        this.undoAdd = this.undoAdd.bind(this);
     }
     addIngredient(e) {
         let el = e.target.parentNode.firstChild;
@@ -33,22 +36,21 @@ class App extends Component {
         updatedStack.push(this.state.ingredients[idx]);
 
         this.setState({stack: updatedStack});
+        // this.setState({lastIngredientIdx: idx})
     }
-    undoIngredient() {
-        // this.setState((state, props) => {
-        //     return {
-        //         ingredients: this.state.ingredients,
-        //         stack: this.stack
-        //     }
-        // })
-        let stack = this.state.stack;
-        this.setState({stack: stack.slice(0, stack.length)})
+    clearBurger() {
+        this.setState({stack: []});
+    }
+    undoAdd() {
+        let updatedStack = this.state.stack;
+        updatedStack.pop();
+        this.setState({stack: updatedStack});
     }
     render() {
         return (
             <div className="App">
                 <IngredientList ingredients={this.state.ingredients} addIngredient={this.addIngredient} />
-                <BurgerPane stack={this.state.stack} />
+                <BurgerPane stack={this.state.stack} clearBurger={this.clearBurger} undoAdd={this.undoAdd} />
             </div>
         );
     }

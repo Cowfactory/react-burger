@@ -2,7 +2,7 @@ import React from 'react';
 
 var ClearBurger = (props) => {
     return (
-        <button>
+        <button onClick={props.clearBurger}>
             ClearBurger
         </button>
     )

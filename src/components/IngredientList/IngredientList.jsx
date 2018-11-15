@@ -1,6 +1,5 @@
 import React from 'react';
 import Ingredient from '../Ingredient/Ingredient';
-import AddIngredientBtn from '../AddIngredientBtn/AddIngredientBtn';
 
 
 var IngredientList = (props) => {
@@ -12,7 +11,7 @@ var IngredientList = (props) => {
                     return (
                         <div key={idx}>
                             <Ingredient name={ing.name} color={ing.color} addIngredient={props.addIngredient} />
-                            <AddIngredientBtn addIngredient={props.addIngredient} />
+                            <button onClick={props.addIngredient}>></button>
                         </div>
                     ) 
                 })

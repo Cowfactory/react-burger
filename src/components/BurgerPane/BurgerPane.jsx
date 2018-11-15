@@ -6,8 +6,8 @@ var BugerPane = (props) => {
     return (
         <div className="container">
             <h1>Burger Pane</h1>
-            <BurgerStack stack={props.stack} />
-            <ClearBurger />
+            <BurgerStack stack={props.stack} undoAdd={props.undoAdd} />
+            <ClearBurger clearBurger={props.clearBurger} />
         </div>
     )
 }
